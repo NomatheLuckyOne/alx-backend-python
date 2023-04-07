@@ -2,10 +2,19 @@
 
 
 import asyncio
-import random
+from typing import list
 
 
-assync def wait_random(max_delay=10):
-    delay = random.uniform(0, max_delay)
-    await asyncio.sleep(delay)
-    return delay
+wait_random = _import_('0-basic_async_syntax').wait_random
+
+
+async def main() -> None:
+    results: List[float] = []
+
+
+    results.append(await wait_random())
+    results.append(await wait_random(5))
+    results.append(await wait_random(15))
+
+
+    print(results)
